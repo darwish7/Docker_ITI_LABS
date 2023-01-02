@@ -29,7 +29,7 @@ FROM node:18.12.1
 ```
 sudo docker build -t myapp:v1.0 .
 sudo docker run -d --name reacttest -p 9090:3000 myapp:v1.0
-
+![single stage react app](/lab2singlestage reactapp.png)
 ```
 
 using multi-stage dockerfile
