@@ -3,7 +3,17 @@
 ## lab2
 
 ###### problem1 
-
+we create Dockerfile with the following
+```
+FROM ubuntu:22.10
+RUN apt-get update -y
+RUN apt install nginx -y
+COPY index.html /var/www/html
+ADD index.tar /var/www/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+then we run the following commands
 ```
 docker build -t lab2:v1.1 . 
 docker run -d --name ziadcontainer2 -p 9890:80 lab2:v1.1
@@ -59,8 +69,8 @@ sudo docker run -d --name reacttest5 -p 9091:80 myapp:v1.2
 sudo docker network create myNetwork
 sudo docker run -d --name cont1 -p 8001:80 ubuntu
 sudo docker run -d --name cont2 -p 8002:80 ubuntu
-sudo docker network connect myNetwork cont1
-sudo docker network connect myNetwork cont2
+sudo docker network connect myNetwork test1
+sudo docker network connect myNetwork test2
 ```
 from one container we run
 ```
